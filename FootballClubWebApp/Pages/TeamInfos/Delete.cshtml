@@ -1,0 +1,33 @@
+﻿@page
+@model FootballClubWebApp.Pages.TeamInfos.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-center heading">Delete Team Details</h1>
+
+
+<div>
+    <h4>Are You Sure to Remove This Team Details?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamInfo.TeamName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamInfo.TeamName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamInfo.CountryInfo.CountryName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamInfo.CountryInfo.CountryName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TeamInfo.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+</div>

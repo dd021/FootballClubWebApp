@@ -1,0 +1,32 @@
+﻿@page
+@model FootballClubWebApp.Pages.TeamInfos.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center heading">Add New Team</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TeamInfo.TeamName" class="control-label"></label>
+                <input asp-for="TeamInfo.TeamName" class="form-control" />
+                <span asp-validation-for="TeamInfo.TeamName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamInfo.CountryID" class="control-label"></label>
+                <select asp-for="TeamInfo.CountryID" class="form-control" asp-items="ViewBag.CountryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Team Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

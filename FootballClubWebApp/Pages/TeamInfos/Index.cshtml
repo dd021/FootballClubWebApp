@@ -1,0 +1,30 @@
+﻿@page
+@model FootballClubWebApp.Pages.TeamInfos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1 class="text-center heading">All Teams</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Add New Team</a>
+</p>
+<div class="row">
+    @foreach (var item in Model.TeamInfo)
+    {
+        <div class="col-3">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 class="card-title">@item.TeamName</h4>
+                    <p>@item.CountryInfo.CountryName</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="./Edit" class="btn btn-secondary mr-2" asp-route-id="@item.Id">Edit</a>
+                    <a asp-page="./Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
